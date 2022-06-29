@@ -1,0 +1,28 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+.nav {
+  width: 100%;
+  background-color: #161853;
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  width: 120px;
+}
+.navBar {
+  background-color: #161853;
+  border: solid violet;
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  list-style: none;
+  width: 100%;
+  margin: 0px;
+}
+.nav-link {
+  color: yellow;
+}
+
