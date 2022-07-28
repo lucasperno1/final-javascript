@@ -1,32 +1,115 @@
-// Productos
-class producto {
-  constructor(nombre, imagen,categoria, precio){
-    this.nombre = nombre;
-    this.imagen = imagen;
-    this.categoria = categoria;
-    this.precio = precio;
-  }
+//Productos
+/*const contenedorProductos = document.getElementById('grid-productos')
+
+const contenedorCarrito = document.getElementById('carrito-contenedor')
+
+const carritoProd = document.getElementById('carritoProd')
+
+let carrito = []
+
+stockProductos.forEach((producto) => {
+  const div = document.createElement('div')
+  div.classList.add('producto')
+  div.innerHTML = `
+  <img class="imagen" src=${producto.imagen} alt="">
+  <h3>${producto.nombre}<h3>
+  <p>Categoria: ${producto.categoria}</p>
+  <p class="precioProducto">Precio: $ ${producto.precio}</p>
+  <button id="agregar${producto.id}" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
+  `
+  contenedorProductos.appendChild(div)
+
+  const boton = document.getElementById (`agregar${producto.id}`)
+
+  boton.addEventListener('click', () => {
+    agregarAlCarrito(producto.id) 
+  })
+
+})
+
+const agregarAlCarrito = (prodId) => {
+  const item = stockProductos.find ((prod) => prod.id === prodId)
+  carrito.push(item)
+  actualizarCarrito()
+  console.log(carrito)
 }
 
-const producto1 = new producto("AMD Ryzen 5 5600x", "/imagenes/Ryzen-5-5600x.png","Componentes", 35000 );
-const producto2 = new producto("INTEL Core i5 10400F", "/imagenes/micro-intel-core-i5-10400f-0.jpg","Componentes", 30000);
-const producto3 = new producto("REDRAGON Zeus H510", "/imagenes/Redragon-Zeus-H510-3.jpg","Perifericos", 6500);
-const producto4 = new producto("LOGITECH G203", "/imagenes/MOU454.jpg","Perifericos", 8300);
-const producto5 = new producto("RAZER Blackwidow V3", "/imagenes/razer-blackwidow-V3.jpg","Periféricos", 12500);
-const producto6 = new producto("MSI RX570 8GB", "/imagenes/msi-rx570.png","Componentes", 62000);
+const eliminarDelCarrito = (prodId) => {
+  const item = carrito.find((prod) => prod.id === prod.id)
+  const indice = carrito.indexOf(item)
+  carrito.splice(indice,1)
+  actualizarCarrito()
+}
 
-const productos = [producto1, producto2, producto3, producto4, producto5, producto6];
-const gridProductos = document.getElementById("grid-productos");
+const actualizarCarrito = () => {
+  contenedorCarrito.innerHTML = ""
 
-for(const product of productos) {
-  const {nombre, imagen, categoria, precio} = product
-  gridProductos.innerHTML += 
-  `<div class="product-card" >
-    <h1>${nombre}</h1>
-    <img class="imagen" src=${imagen} alt="">
-    <p>Categoria :${categoria}</p>
-    <p>Precio :${precio}</p>
-    <button>Comprar</button>
-  </div>`
+  carrito.forEach((prod) => {
+    const div = document.createElement('div')
+    carritoProd.innerHTML =
+    `<p>${prod.nombre}</p>
+    <p>Precio: ${prod.precio}</p>
+    <p>Cantidad: <span id="categoria">${prod.categoria}</span></p>
+    <button onclick="eliminarDelCarrito(${prod.id})" class="boton-eliminar"><i class="das fa-trash-alt"></button>
+    `
+    contenedorCarrito.appendChild(div)
+  })
+}*/
+
+let carritoDeCompras = []
+
+let contenedorProductos = document.getElementById('grid-productos')
+let contenedorCarrito = document.getElementById('contenedor-carrito')
+let contadorCarrito = document.getElementById('contadorCarrito')
+let total = document.getElementById('precioTotal')
+
+mostrarProductos()
+
+//Logica Ecommerce
+function mostrarProductos(){
+  
+  stockProductos.forEach(item =>{
+    let div = document.createElement('div')
+    div.className = 'producto'
+    div.innerHTML = `
+    <img class="imagen" src=${item.imagen} alt="">
+    <h3>${item.nombre}<h3>
+    <p>Categoria: ${item.categoria}</p>
+    <p class="precioProducto">Precio: $ ${item.precio}</p>
+    <button id="agregar${item.id}" class="boton-agregar">Agregar <i class="fas fa-shopping-cart"></i></button>
+    `
+    
+  contenedorProductos.appendChild(div)
+  const boton = document.getElementById (`agregar${item.id}`)
+   boton.addEventListener('click', () => {
+    agregarAlCarrito(item.id) 
+   })
+  })
+  agregarAlCarrito()
+}
+
+function agregarAlCarrito(id) {
+  let encontrado = stockProductos.find(element => element.id === id)
+  carritoDeCompras.push(encontrado)
+  mostrarCarrito(encontrado)
+  actualizarCarrito()
+}
+
+function mostrarCarrito(encontrado) {
+  let div = document.createElement('div')
+  div.className = 'productoEnCarrito'
+  div.innerHTML = `
+  <p>${encontrado.nombre}</p>
+  <p>$ ${encontrado.precio}</p>
+  <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>
+  `
+  contenedorCarrito.appendChild(div)
+}
+
+function actualizarCarrito () {
+  contadorCarrito.innerText = carritoDeCompras.length
+  total.innerText = carritoDeCompras.reduce((acc, el)=> acc + el.precio, 0)
   
 }
+
+
