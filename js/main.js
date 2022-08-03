@@ -85,7 +85,7 @@ function mostrarProductos(){
     agregarAlCarrito(item.id) 
    })
   })
-  agregarAlCarrito()
+  
 }
 
 function agregarAlCarrito(id) {
@@ -93,6 +93,7 @@ function agregarAlCarrito(id) {
   carritoDeCompras.push(encontrado)
   mostrarCarrito(encontrado)
   actualizarCarrito()
+  
 }
 
 function mostrarCarrito(encontrado) {
