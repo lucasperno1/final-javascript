@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <!--CSS-->
     <link rel="stylesheet" href="/css/style.css">
-    <title>Document</title>
+    <title>Puma Gaming Hardware</title>
 </head>
 
 <body>
@@ -27,7 +27,7 @@
                 <button class="btn btn-outline-success" type="submit">Search</button>
             </form>
         </div>
-        <!--<button id="boton-carrito"></button>-->
+        <!--CARRITO-->
         <div class="botonCarrito">
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
                     class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span>
@@ -48,13 +48,13 @@
             <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
                 aria-labelledby="offcanvasNavbarLabel">
                 <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Categorias</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="offcanvas-body">
                     <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Home</a>
+                            <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Link</a>
@@ -65,8 +65,8 @@
                                 Dropdown
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li><a class="dropdown-item" href="/productos.html">Todos los productos</a></li>
+                                <li><a class="dropdown-item" href="/productos.html">Mouse</a></li>
                                 <li>
                                     <hr class="dropdown-divider">
                                 </li>
@@ -74,10 +74,6 @@
                             </ul>
                         </li>
                     </ul>
-                    <form class="d-flex" role="search">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
                 </div>
             </div>
         </div>
@@ -107,7 +103,12 @@
     </div>
 
     <script src="js/stock.js"></script>
+    <script>
+        src = "js/categorias.js"
+    </script>
     <script src="js/main.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="js/sweetAlert.js"></script>
 
 </body>
 
