@@ -1,4 +1,4 @@
-let stockProductos = [
+/*let stockProductos = [
   {id: 1, nombre: "AMD Ryzen 5 5600x", imagen:"/imagenes/Ryzen-5-5600x.png", categoria: "Procesadores", precio: 55000, stock: 7},
   {id: 2, nombre: "INTEL Core i5 10400F", imagen:"/imagenes/micro-intel-core-i5-10400f-0.jpg", categoria: "Procesadores", precio: 25000, stock: 1},
   {id: 3, nombre: "REDRAGON Zeus H510", imagen:"/imagenes/Redragon-Zeus-H510-3.jpg", categoria: "Auriculares", precio: 12000, stock: 0},
@@ -14,5 +14,5 @@ const productosStorage = (item, producto1) => {localStorage.setItem("item", prod
 for (const producto of stockProductos) {
   productosStorage("listaProductos", JSON.stringify(stockProductos))
 }
-
+*/
 

@@ -6,35 +6,160 @@ let totalCart = document.getElementById('precioTotal') // totalCart
 
 
 // Store declarations
+const localCart = JSON.parse(localStorage.getItem('cart'))
 let cart = [] // cart
 const products = [] // products
 
 
-
 // Get data
-async function getData () {
+async function getAuriculares () {
+  productsGrid.innerHTML = templateLoader()
   fetch('https://api.mercadolibre.com/sites/MLA/search?q=auricularesgamer&limit=15')
   .then(res => {return res.json()})
   .then(data => {    
     // Insert data from ML
+    productsGrid.innerHTML = ""
+    data.results.forEach((result) => {
+      productsGrid.innerHTML += templateProduct(result)
+    }) 
+  }) 
+}
+async function getMouses () {
+  productsGrid.innerHTML = templateLoader()
+  fetch('https://api.mercadolibre.com/sites/MLA/search?q=mousegamer&limit=15')
+  .then(res => {return res.json()})
+  .then(data => {    
+    // Insert data from ML
+    productsGrid.innerHTML = ""
+    data.results.forEach((result) => {
+      productsGrid.innerHTML += templateProduct(result)
+    })
+  }) 
+}
+async function getTeclados () {
+  productsGrid.innerHTML = templateLoader()
+  fetch('https://api.mercadolibre.com/sites/MLA/search?q=tecladogamer&limit=15')
+  .then(res => {return res.json()})
+  .then(data => {    
+    // Insert data from ML
+    productsGrid.innerHTML = ""
+    data.results.forEach((result) => {
+      productsGrid.innerHTML += templateProduct(result)
+    })
+  }) 
+}
+async function getPerifericos () {
+  productsGrid.innerHTML = templateLoader()
+  fetch('https://api.mercadolibre.com/sites/MLA/search?q=perifericospc&limit=15')
+  .then(res => {return res.json()})
+  .then(data => {    
+    // Insert data from ML
+    productsGrid.innerHTML = ""
+    data.results.forEach((result) => {
+      productsGrid.innerHTML += templateProduct(result)
+    })
+  }) 
+}
+async function getMousepad () {
+  productsGrid.innerHTML = templateLoader()
+  fetch('https://api.mercadolibre.com/sites/MLA/search?q=mousepadgaming&limit=15')
+  .then(res => {return res.json()})
+  .then(data => {    
+    // Insert data from ML
+    productsGrid.innerHTML = ""
+    data.results.forEach((result) => {
+      productsGrid.innerHTML += templateProduct(result)
+    })
+  }) 
+}
+async function getHardware () {
+  productsGrid.innerHTML = templateLoader()
+  fetch('https://api.mercadolibre.com/sites/MLA/search?q=componentespc&limit=15')
+  .then(res => {return res.json()})
+  .then(data => {    
+    // Insert data from ML
+    productsGrid.innerHTML = ""
+    data.results.forEach((result) => {
+      productsGrid.innerHTML += templateProduct(result)
+    })
+  }) 
+}
+async function getMotherboard () {
+  productsGrid.innerHTML = templateLoader()
+  fetch('https://api.mercadolibre.com/sites/MLA/search?q=motherboard&limit=15')
+  .then(res => {return res.json()})
+  .then(data => {    
+    // Insert data from ML
+    productsGrid.innerHTML = ""
+    data.results.forEach((result) => {
+      productsGrid.innerHTML += templateProduct(result)
+    })
+  }) 
+}
+async function getMemoriasRam () {
+  productsGrid.innerHTML = templateLoader()
+  fetch('https://api.mercadolibre.com/sites/MLA/search?q=memoriaram&limit=15')
+  .then(res => {return res.json()})
+  .then(data => {    
+    // Insert data from ML
+    productsGrid.innerHTML = ""
+    data.results.forEach((result) => {
+      productsGrid.innerHTML += templateProduct(result)
+    })
+  }) 
+}
+async function getPlacasDeVideo () {
+  productsGrid.innerHTML = templateLoader()
+  fetch('https://api.mercadolibre.com/sites/MLA/search?q=placadevideo&limit=15')
+  .then(res => {return res.json()})
+  .then(data => {    
+    // Insert data from ML
+    productsGrid.innerHTML = ""
     data.results.forEach((result) => {
       productsGrid.innerHTML += templateProduct(result)
     })
   }) 
 }
 
-getData()
 
+// Render Loader
+const templateLoader = () => {
+  return `
+  <div class="col-12 loader">
+    <h5>CARGANDO.....</h5>
+  </div>
+  `
+}
 // Render HTML Product
 const templateProduct = (product) => {
   return `
-    <div class="product">
-      <img class="imagen" src=${product.thumbnail} alt="">
-      <h3>${product.title}<h3>
-      <p>Categoria: ${product.category_id}</p>
-      <p class="precioProducto">Precio: $ ${product.price}</p>
-      <p class="precioProducto">Stock: ${product.available_quantity}</p>
-      <button class="boton-agregar" onclick='addToCart(${JSON.stringify(product)})'>Agregar <i class="fas fa-shopping-cart"></i></button>
+    <div class="col-12">
+      <div class="single-product">
+        <div class="row">
+          <div class="col-5 col-md-3">
+            <img class="single-product_image" src=${product.thumbnail} alt="${product.title}">
+          </div>
+          <div class="col-7 col-md-9">
+            <h3 class="single-product_title">${product.title}<h3>
+            <p class="single-product_category">Categoria: ${product.category_id}</p>
+            <div class="row align-items-center my-3">
+              <div class="col-12 col-md-4">
+                <div class="price-container">
+                  <p class="precioProducto">Precio: $ ${product.price}</p>
+                </div>
+              </div>
+              <div class="col-12 col-md-4 stock-container">
+                <div class="stock-container">
+                  <p class="precioProducto">Stock: ${product.available_quantity}</p>
+                </div>
+              </div>
+            </div>
+            <div class="actions-container">
+              <div class="single-product_btn" onclick='addToCart(${JSON.stringify(product)})'>Agregar <i class="fas fa-shopping-cart"></i></div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   `
 }
@@ -50,6 +175,7 @@ function addToCart(product) {
       // If product added quantity is minor to the stock
       if(cart[indexProd].added_quantity < cart[indexProd].available_quantity) {
         cart[indexProd] = {...cart[indexProd], added_quantity: cart[indexProd].added_quantity + 1}
+        localStorage.setItem('cart', JSON.stringify(cart))
       } else {
         Swal.fire({
           icon: 'error',
@@ -60,6 +186,7 @@ function addToCart(product) {
     } else {
       // Add product to cart
       cart.push({...product, added_quantity: 1})
+      localStorage.setItem('cart', JSON.stringify(cart))
     }
     // Cart DOM Update
     updateCart()
@@ -115,6 +242,7 @@ function updateCart () {
 function deleteProductFromCart (prodId) {
   const newCart = cart.filter((prod) => prod.id !== prodId )
   cart = newCart
+  localStorage.setItem('cart', JSON.stringify(cart))
   // Cart DOM Update
   updateCart()
 }
@@ -125,6 +253,8 @@ function addQuantity(id){
   // If product added quantity is minor to the stock
   if(cart[indexProduct].added_quantity < cart[indexProduct].available_quantity){
     cart[indexProduct].added_quantity = cart[indexProduct].added_quantity + 1
+    localStorage.setItem('cart', JSON.stringify(cart))
+    
   } else {
     Swal.fire({
       icon: 'error',
@@ -140,6 +270,13 @@ function removeQuantity(id){
     deleteProductFromCart(id)
   } else {
     cart[indexProduct].added_quantity = cart[indexProduct].added_quantity - 1
+    localStorage.setItem('cart', JSON.stringify(cart))
   }
+  updateCart()
+}
+
+if(localCart){
+  cart = localCart
+  renderCartProducts()
   updateCart()
 }

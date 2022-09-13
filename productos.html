@@ -2,113 +2,125 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--BOOTSTRAP-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
-    </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-    <!--CSS-->
-    <link rel="stylesheet" href="/css/style.css">
-    <title>Puma Gaming Hardware</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!--BOOTSTRAP-->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+  </script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+  <!--CSS-->
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Gorilla Gaming Hardware</title>
 </head>
 
 <body>
-    <!--NAVBAR-->
-    <header class="header">
-        <a href="index.html"> <img class="logo" src="/imagenes/logo-puma.png" alt=""></a>
-        <div class="busqueda">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+  <!--NAVBAR-->
+  <header class="header">
+    <div class="container-fluid">
+      <div class="row align-items-center header-container">
+        <div class="col-4 col-md-4">
+          <a href="index.html">
+            <img class="logo" src="./imagenes/gorilla-sin.png" alt="Puma Gaming Hardware" />
+          </a>
         </div>
-        <!--CARRITO-->
-        <div class="botonCarrito">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"><i
-                    class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span>
-            </button>
-        </div>
-
-
-    </header>
-    <nav class="navbar bg-light">
-        <div class="container-fluid">
-            <div class="botonCategoria">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <p>Busqueda por categoria</p>
+        <div class="col-12 col-md-8">
+          <div class="row search-cart-container">
+            <div class="col-10 col-md-8">
+              <input class="form-control w-100" type="search" placeholder="Search" aria-label="Search">
             </div>
-            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
-                aria-labelledby="offcanvasNavbarLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Categorias</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/index.html">Inicio</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">Link</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Dropdown
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
-                                <li><a class="dropdown-item" href="/productos.html">Todos los productos</a></li>
-                                <li><a class="dropdown-item" href="/productos.html">Mouse</a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li><a class="dropdown-item" href="#">Something else here</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
+            <div class="col-2 button-cart-container">
+              <button type="button" class="btn btn-primary cart_button" data-bs-toggle="modal"
+                data-bs-target="#exampleModal"><i class="fas fa-shopping-cart"></i><span id="contadorCarrito">0</span>
+              </button>
             </div>
-        </div>
-    </nav>
-    <main id="grid-productos">
+          </div>
 
-    </main>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body" id="contenedor-carrito">
-                    <!--<p>Nombre</p>
-                    <p>Precio</p>
-                    <button class="boton-eliminar"><i class="fas fa-trash-alt"></i></button>-->
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <p class="precioProducto">Precio Total: $<span id="precioTotal">0</span></p>
-                </div>
-            </div>
         </div>
+      </div>
     </div>
+    
 
-    <script src="js/stock.js"></script>
-    <script>
-        src = "js/categorias.js"
-    </script>
-    <script src="js/main.js"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/sweetAlert.js"></script>
+
+  </header>
+  <nav class="navbar bg-light">
+    <div class="container-fluid">
+      <div class="botonCategoria">
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+          aria-controls="offcanvasNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <p>Busqueda por categoria</p>
+      </div>
+      <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Productos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="index.html">Inicio</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                Categorias
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+                <li><a class="dropdown-item" onclick="getPerifericos()">Perifericos</a></li>
+                <li><a class="dropdown-item" onclick="getAuriculares()">Auriculares</a></li>
+                <li><a class="dropdown-item" onclick="getMouses()">Mouse</a></li>
+                <li><a class="dropdown-item" onclick="getTeclados()">Teclados</a></li>
+                <li><a class="dropdown-item" onclick="getMousepad()">Mousepad</a></li>
+                <li>
+                  <hr class="dropdown-divider">
+                </li>
+                <li><a class="dropdown-item" onclick="getHardware()">Hardware</a></li>
+                <li><a class="dropdown-item" onclick="getMotherboard()">Motherboard</a></li>
+                <li><a class="dropdown-item" onclick="getMemoriasRam()">Memorias RAM</a></li>
+                <li><a class="dropdown-item" onclick="getPlacasDeVideo()">Placas de Video</a></li>
+                
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+  <main class="container">
+    <h1 class="section-title">Listado de productos</h1>
+    <div class="row g-3" id="grid-productos">
+
+    </div>
+  </main>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Carrito</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body" id="contenedor-carrito">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <p class="precioProducto">Precio Total: $<span id="precioTotal">0</span></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.32/dist/sweetalert2.all.min.js"></script>
+  <script src="./js/stock.js"></script>
+  <script>
+    src = "./js/categorias.js"
+  </script>
+  <script src="./js/main.js"></script>
+
 
 </body>
 
